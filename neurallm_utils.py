@@ -7,7 +7,6 @@ nltk.download('punkt')
 SENTENCE_BEGIN = "<s>"
 SENTENCE_END = "</s>"
 
-
 def tokenize_line(line: str, ngram: int, 
                    by_char: bool = True, 
                    space_char: str = ' ',
@@ -46,17 +45,17 @@ def tokenize_line(line: str, ngram: int,
   # always count the unigrams
   return tokens
 
-
 def read_file_spooky(datapath, ngram, by_character=False):
     '''Reads and Returns the "data" as list of list (as shown above)'''
     data = []
-    with open(datapath) as csvfile:
+    
+    with open(datapath, encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             # THIS IS WHERE WE GET CHARACTERS INSTEAD OF WORDS
             # replace spaces with underscores
             data.append(tokenize_line(row['text'].lower(), ngram, by_char=by_character, space_char="_"))
+    
     return data
-
 
 # Feel free to add more functions here as you would like!
