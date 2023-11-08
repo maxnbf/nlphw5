@@ -1,3 +1,5 @@
+# Names: Tijana Cosic (4120) & Max Breslauer-Friedman (4120)
+
 # for word tokenization
 import nltk
 import csv
@@ -46,7 +48,16 @@ def tokenize_line(line: str, ngram: int,
   return tokens
 
 def read_file_spooky(datapath, ngram, by_character=False):
-    '''Reads and Returns the "data" as list of list (as shown above)'''
+    """
+  Reads and returns the "data" as a list of lists (as shown above).
+  Args:
+    datapath (str): path to the file you want to read
+    ngram (int): length of ngram
+    by_character (bool): boolean to represent if tokenizing by char or not
+  Returns:
+    list of lists - the data as a list of lists
+    """
+    
     data = []
     
     with open(datapath, encoding='utf-8') as csvfile:
